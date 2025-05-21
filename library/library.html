@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library - Quantum Games</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='store/stylestore.css') }}">
+</head>
+<body class="bg-gray-900" data-logged-in="false">
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-800/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-700/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center mr-3">
+              <i class="fas fa-gamepad text-white text-lg"></i>
+            </div>
+            <span class="text-xl font-bold text-white quantum-font">QUANTUM GAMES</span>
+          </div>
+        </div>
+        <div class="hidden md:ml-12 md:flex md:space-x-8">
+          <a href="../home page/home page.html" class="nav-link text-gray-300 hover:text-white inline-flex items-center px-1 text-sm font-medium">Home</a>
+          <a href="../store/store.html" class="nav-link text-gray-300 hover:text-white inline-flex items-center px-1 text-sm font-medium">Store</a>
+          <a href="../deals/deals.html" class="nav-link text-gray-300 hover:text-white inline-flex items-center px-1 text-sm font-medium">Deals</a>
+          <a href="../new release/newrelease.html" class="nav-link text-gray-300 hover:text-white inline-flex items-center px-1 text-sm font-medium">New Releases</a>
+          <a href="library.html" class="nav-link text-purple-400 inline-flex items-center px-1 text-sm font-medium">Library</a>
+        </div>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="../home page/home page.html" class="text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition-all">Home</a>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fas fa-search text-gray-400"></i>
+            </div>
+            <input type="text" class="search-input bg-gray-700/50 text-white pl-10 pr-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Search games...">
+          </div>
+          <button id="cartIcon" class="relative bg-gray-700/50 text-white p-2 rounded-full hover:bg-gray-600/50 hidden">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="absolute -top-1 -right-1 bg-purple-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">0</span>
+          </button>
+          <a href="../acc/singin/singin.html" class="bg-gray-700/50 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-600/50">Log In</a>
+          <a href="../acc/sing up/singup.html" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:from-purple-700 hover:to-blue-600">Sign Up</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="menuToggle" class="text-white focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 pt-2 space-y-2">
+      <a href="../home page/home page.html" class="block text-white py-2 px-3 rounded hover:bg-gray-700">Home</a>
+      <a href="../store/store.html" class="block text-white py-2 px-3 rounded hover:bg-gray-700">Store</a>
+      <a href="../deals/deals.html" class="block text-white py-2 px-3 rounded hover:bg-gray-700">Deals</a>
+      <a href="../new release/newrelease.html" class="block text-white py-2 px-3 rounded hover:bg-gray-700">New Releases</a>
+      <a href="library.html" class="block text-purple-400 py-2 px-3 rounded hover:bg-gray-700">Library</a>
+      <div class="pt-2 border-t border-gray-700">
+        <a href="../acc/singin/singin.html" class="block text-white py-2 px-3 rounded hover:bg-gray-700">Log In</a>
+        <a href="../acc/sing up/singup.html" class="block text-white py-2 px-3 rounded hover:bg-gray-700">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Library Products Section -->
+  <section class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-bold text-purple-400 mb-12 quantum-font">Library</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Products will be listed here -->
+    </div>
+  </section>
+  <script src="{{ url_for('static', filename='store/scriptstore.js') }}"></script>
+
+  <script>
+    // NOTE: To require login for this page, uncomment the following block.
+    // This will redirect users to the login page if they are not logged in.
+    /*
+    if (document.body.getAttribute('data-logged-in') !== 'true') {
+      window.location.href = "../acc/singin/singin.html";
+    }
+    */
+    // To re-enable, just remove the /* and */ above.
+
+    // Toggle mobile menu visibility
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      var menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
