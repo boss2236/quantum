@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"="width=device-width, initial-scale=1.0">
+    <!-- Fixed viewport meta tag for proper scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUANTUM GAMES | Next-Gen Gaming Experience</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -52,7 +53,8 @@
                     </a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                    <!-- Add id for JS toggle -->
+                    <button id="menuToggle" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -128,6 +130,7 @@
             </div>
 
             <div class="relative">
+                <!-- Add responsive overflow for game cards -->
                 <div class="scroll-container overflow-x-auto pb-6 flex space-x-6">
                     <!-- Game 1 -->
                     <div class="game-card flex-shrink-0 w-80 overflow-hidden fade-in cyber-border">
@@ -295,6 +298,7 @@
                 </p>
             </div>
 
+            <!-- Responsive grid for new releases -->
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 <!-- Game 1 -->
                 <div class="game-card overflow-hidden fade-in cyber-border">
@@ -395,6 +399,7 @@
                 </p>
             </div>
 
+            <!-- Responsive grid for deals -->
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <!-- Deal 1 -->
                 <div class="game-card overflow-hidden fade-in cyber-border">
@@ -506,6 +511,7 @@
                 </p>
             </div>
 
+            <!-- Responsive grid for categories -->
             <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                 <!-- Category 1 -->
                 <a href="#" class="category-card group relative bg-gray-700/50 rounded-lg overflow-hidden h-32 flex flex-col items-center justify-center hover:bg-purple-600/30 transition duration-300 border border-gray-600 hover:border-purple-500">
@@ -746,7 +752,11 @@
     </footer>
     <script src="scripthome.js"></script>
     <script>
-      
+      // Mobile menu toggle for all devices
+      document.getElementById('menuToggle').addEventListener('click', function() {
+        var menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+      });
     </script>
 </body>
 </html>
