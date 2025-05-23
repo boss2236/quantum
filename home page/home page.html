@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Fixed viewport meta tag for proper scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUANTUM GAMES | Next-Gen Gaming Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stylehome.css">
+</head>
+<body class="bg-gray-900" data-logged-in="false">
+    <!-- Navigation -->
+    <nav class="bg-gray-800/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center mr-3">
+                            <i class="fas fa-gamepad text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white quantum-font">QUANTUM GAMES</span>
+                    </div>
+                    <div class="hidden md:ml-12 md:flex md:space-x-8">
+                        <a href="#" class="nav-link text-purple-400 inline-flex items-center px-1 text-sm font-medium">Home</a>
+                        <a href="../store/store.html" class="nav-link text-gray-300 hover:text-white inline-flex items-center px-1 text-sm font-medium">Store</a>
+                        <a href="../deals/deals.html" class="nav-link text-gray-300 hover:text-white inline-flex items-center px-1 text-sm font-medium">Deals</a>
+                        <a href="../new release/newrelease.html" class="nav-link text-gray-300 hover:text-white inline-flex items-center px-1 text-sm font-medium">New Releases</a>
+                        <a href="../library/library.html" class="nav-link text-gray-300 hover:text-white inline-flex items-center px-1 text-sm font-medium">Library</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                        <input type="text" class="search-input bg-gray-700/50 text-white pl-10 pr-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Search games...">
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button id="cartIcon" class="relative bg-gray-700/50 text-white p-2 rounded-full hover:bg-gray-600/50 focus:outline-none focus:ring-2 focus:ring-purple-500 hidden">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="sr-only">Cart</span>
+                            <span class="absolute -top-1 -right-1 bg-purple-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">0</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../acc/singin/singin.html" class="bg-gray-700/50 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-600/50 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        Log In
+                    </a>
+                    <a href="../acc/sing up/singup.html" class="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300">
+                        Sign Up
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <!-- Add id for JS toggle -->
+                    <button id="menuToggle" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu md:hidden bg-gray-800/95 backdrop-blur-md shadow-lg hidden" id="mobileMenu">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900/50">Home</a>
+                <a href="../store/store.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700/50">Store</a>
+                <a href="../deals/deals.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700/50">Deals</a>
+                <a href="../new release/newrelease.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700/50">New Releases</a>
+                <a href="../library/library.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700/50">Library</a>
+                <div class="pt-4 pb-2 border-t border-gray-700">
+                    <div id="mobileUser"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/30 to-blue-800/20"></div>
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl quantum-font glow-text">
+                    <span class="block">NEXT-GEN</span>
+                    <span class="block">GAMING EXPERIENCE</span>
+                </h1>
+                <p class="mt-4 max-w-md mx-auto text-lg text-blue-100 sm:text-xl md:mt-6 md:max-w-2xl">
+                    We are here to make to that you get the best Deal.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="../store/store.html" class="neon-button inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 md:py-4 md:text-lg md:px-8 transition-all duration-300 hover:shadow-lg">
+                        <i class="fas fa-store mr-2"></i> Enter Store
+                    </a>
+                    <a href="../deals/deals.html" class="neon-button inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-800 hover:bg-gray-700 md:py-4 md:text-lg md:px-8 transition-all duration-300 hover:shadow-lg border border-purple-500/30">
+                        <i class="fas fa-bolt mr-2"></i> Quantum Deals
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
+    </div>
+
+    <!-- Featured Games -->
+    <div class="bg-gray-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-white quantum-font">
+                        <span class="text-purple-400">Quantum</span> Picks
+                    </h2>
+                    <p class="mt-2 text-gray-400">Curated selection of this week's most immersive titles</p>
+                </div>
+                <a href="../store/store.html" class="mt-4 md:mt-0 inline-flex items-center text-purple-400 hover:text-purple-300 font-medium">
+                    View all <i class="fas fa-chevron-right ml-1 text-sm"></i>
+                </a>
+            </div>
+
+            <div class="relative">
+                <!-- Add responsive overflow for game cards -->
+                <div class="scroll-container overflow-x-auto pb-6 flex space-x-6">
+                    <!-- Game 1 -->
+                    <div class="game-card flex-shrink-0 w-80 overflow-hidden fade-in cyber-border">
+                        <div class="relative">
+                            <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1545566239-0ec0b022a75a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                            <div class="discount-badge">-45%</div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <span class="text-xs font-semibold text-white bg-purple-600 px-2 py-1 rounded">CYBERPUNK</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">Neon Overdrive</h3>
+                            <p class="mt-1 text-sm text-gray-400">Quantum Studios</p>
+                            <div class="flex items-center mt-3">
+                                <div class="flex">
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                </div>
+                                <span class="text-xs text-gray-400 ml-2">4.7 (12.5k)</span>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Windows_logo_-_2012.svg/1200px-Windows_logo_-_2012.svg.png" alt="Windows" class="platform-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png" alt="PlayStation" class="platform-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Xbox_logo_2012.svg/1200px-Xbox_logo_2012.svg.png" alt="Xbox" class="platform-icon">
+                            </div>
+                            <div class="mt-5 flex justify-between items-center">
+                                <div>
+                                    <span class="text-sm text-gray-400 line-through">$59.99</span>
+                                    <span class="ml-2 text-lg font-bold text-white">$32.99</span>
+                                </div>
+                                <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                    <i class="fas fa-cart-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game 2 -->
+                    <div class="game-card flex-shrink-0 w-80 overflow-hidden fade-in cyber-border">
+                        <div class="relative">
+                            <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1551103782-8ab07bdd0d39?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <span class="text-xs font-semibold text-white bg-green-500 px-2 py-1 rounded">HOT</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">Quantum Shift</h3>
+                            <p class="mt-1 text-sm text-gray-400">FutureTech Games</p>
+                            <div class="flex items-center mt-3">
+                                <div class="flex">
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                </div>
+                                <span class="text-xs text-gray-400 ml-2">5.0 (15.2k)</span>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Windows_logo_-_2012.svg/1200px-Windows_logo_-_2012.svg.png" alt="Windows" class="platform-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png" alt="PlayStation" class="platform-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Xbox_logo_2012.svg/1200px-Xbox_logo_2012.svg.png" alt="Xbox" class="platform-icon">
+                            </div>
+                            <div class="mt-5 flex justify-between items-center">
+                                <div>
+                                    <span class="text-lg font-bold text-white">$59.99</span>
+                                </div>
+                                <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                    <i class="fas fa-cart-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game 3 -->
+                    <div class="game-card flex-shrink-0 w-80 overflow-hidden fade-in cyber-border">
+                        <div class="relative">
+                            <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1545566239-0ec0b022a75a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                            <div class="discount-badge">-60%</div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <span class="text-xs font-semibold text-white bg-purple-600 px-2 py-1 rounded">EXCLUSIVE</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">Neon Nexus</h3>
+                            <p class="mt-1 text-sm text-gray-400">Cyber Dynamics</p>
+                            <div class="flex items-center mt-3">
+                                <div class="flex">
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                </div>
+                                <span class="text-xs text-gray-400 ml-2">5.0 (18.7k)</span>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png" alt="PlayStation" class="platform-icon">
+                            </div>
+                            <div class="mt-5 flex justify-between items-center">
+                                <div>
+                                    <span class="text-sm text-gray-400 line-through">$69.99</span>
+                                    <span class="ml-2 text-lg font-bold text-white">$27.99</span>
+                                </div>
+                                <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                    <i class="fas fa-cart-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game 4 -->
+                    <div class="game-card flex-shrink-0 w-80 overflow-hidden fade-in cyber-border">
+                        <div class="relative">
+                            <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <span class="text-xs font-semibold text-white bg-yellow-500 px-2 py-1 rounded">PREMIUM</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">Hologram Legends</h3>
+                            <p class="mt-1 text-sm text-gray-400">Quantum Arts</p>
+                            <div class="flex items-center mt-3">
+                                <div class="flex">
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                </div>
+                                <span class="text-xs text-gray-400 ml-2">4.5 (9.8k)</span>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Windows_logo_-_2012.svg/1200px-Windows_logo_-_2012.svg.png" alt="Windows" class="platform-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png" alt="PlayStation" class="platform-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Xbox_logo_2012.svg/1200px-Xbox_logo_2012.svg.png" alt="Xbox" class="platform-icon">
+                            </div>
+                            <div class="mt-5 flex justify-between items-center">
+                                <div>
+                                    <span class="text-lg font-bold text-white">$59.99</span>
+                                </div>
+                                <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                    <i class="fas fa-cart-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Releases Section -->
+    <div id="new" class="bg-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-bold text-white quantum-font">
+                    <span class="text-purple-400">Quantum</span> Releases
+                </h2>
+                <p class="mt-3 max-w-2xl mx-auto text-gray-400">
+                    Fresh from the developers - be the first to experience these cutting-edge titles
+                </p>
+            </div>
+
+            <!-- Responsive grid for new releases -->
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Game 1 -->
+                <div class="game-card overflow-hidden fade-in cyber-border">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-xs font-semibold text-white bg-red-500 px-2 py-1 rounded">JUST RELEASED</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-white">Cyber Nexus</h3>
+                        <p class="mt-1 text-sm text-gray-400">Neon Interactive</p>
+                        <div class="mt-3 flex items-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Windows_logo_-_2012.svg/1200px-Windows_logo_-_2012.svg.png" alt="Windows" class="platform-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Xbox_logo_2012.svg/1200px-Xbox_logo_2012.svg.png" alt="Xbox" class="platform-icon">
+                        </div>
+                        <div class="mt-5 flex justify-between items-center">
+                            <div>
+                                <span class="text-lg font-bold text-white">$69.99</span>
+                            </div>
+                            <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                <i class="fas fa-cart-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 2 -->
+                <div class="game-card overflow-hidden fade-in cyber-border">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-xs font-semibold text-white bg-green-500 px-2 py-1 rounded">PRE-ORDER</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-white">Holo Matrix</h3>
+                        <p class="mt-1 text-sm text-gray-400">Quantum Reality</p>
+                        <div class="mt-3 flex items-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png" alt="PlayStation" class="platform-icon">
+                        </div>
+                        <div class="mt-5 flex justify-between items-center">
+                            <div>
+                                <span class="text-lg font-bold text-white">$69.99</span>
+                            </div>
+                            <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                <i class="fas fa-cart-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 3 -->
+                <div class="game-card overflow-hidden fade-in cyber-border">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-xs font-semibold text-white bg-purple-500 px-2 py-1 rounded">COMING SOON</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-white">Neon Protocol</h3>
+                        <p class="mt-1 text-sm text-gray-400">Cybernet Studios</p>
+                        <div class="mt-3 flex items-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Windows_logo_-_2012.svg/1200px-Windows_logo_-_2012.svg.png" alt="Windows" class="platform-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png" alt="PlayStation" class="platform-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Xbox_logo_2012.svg/1200px-Xbox_logo_2012.svg.png" alt="Xbox" class="platform-icon">
+                        </div>
+                        <div class="mt-5 flex justify-between items-center">
+                            <div>
+                                <span class="text-lg font-bold text-white">$69.99</span>
+                            </div>
+                            <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                <i class="fas fa-cart-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="../new release/newrelease.html" class="neon-button inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 transition-colors duration-300">
+                    <i class="fas fa-arrow-right mr-2"></i> View All Releases
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deals Section -->
+    <div id="deals" class="bg-gray-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-bold text-white quantum-font">
+                    <span class="text-purple-400">Quantum</span> Deals
+                </h2>
+                <p class="mt-3 max-w-2xl mx-auto text-gray-400">
+                    Limited-time offers you don't want to miss
+                </p>
+            </div>
+
+            <!-- Responsive grid for deals -->
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <!-- Deal 1 -->
+                <div class="game-card overflow-hidden fade-in cyber-border">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1545566239-0ec0b022a75a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                        <div class="discount-badge">-75%</div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-xs font-semibold text-white bg-red-500 px-2 py-1 rounded">FLASH SALE</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-white">Neon Overdrive</h3>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-sm text-gray-400 line-through">$59.99</span>
+                                <span class="ml-2 text-lg font-bold text-white">$14.99</span>
+                            </div>
+                            <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                <i class="fas fa-cart-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                        <div class="mt-3">
+                            <div class="text-xs text-gray-400">Ends in 08:23:45</div>
+                            <div class="mt-1 w-full bg-gray-700 rounded-full h-1.5">
+                                <div class="bg-red-500 h-1.5 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deal 2 -->
+                <div class="game-card overflow-hidden fade-in cyber-border">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                        <div class="discount-badge">-60%</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-white">Hologram Legends</h3>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-sm text-gray-400 line-through">$39.99</span>
+                                <span class="ml-2 text-lg font-bold text-white">$15.99</span>
+                            </div>
+                            <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                <i class="fas fa-cart-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deal 3 -->
+                <div class="game-card overflow-hidden fade-in cyber-border">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1551103782-8ab07bdd0d39?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                        <div class="discount-badge">-50%</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-white">Quantum Shift</h3>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-sm text-gray-400 line-through">$59.99</span>
+                                <span class="ml-2 text-lg font-bold text-white">$29.99</span>
+                            </div>
+                            <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                <i class="fas fa-cart-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deal 4 -->
+                <div class="game-card overflow-hidden fade-in cyber-border">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game cover">
+                        <div class="discount-badge">-40%</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-white">Cyber Nexus</h3>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-sm text-gray-400 line-through">$69.99</span>
+                                <span class="ml-2 text-lg font-bold text-white">$41.99</span>
+                            </div>
+                            <button class="neon-button bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                                <i class="fas fa-cart-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="../deals/deals.html" class="neon-button inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 transition-colors duration-300">
+                    <i class="fas fa-tag mr-2"></i> View All Deals
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="bg-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-bold text-white quantum-font">
+                    <span class="text-purple-400">Quantum</span> Categories
+                </h2>
+                <p class="mt-3 max-w-2xl mx-auto text-gray-400">
+                    Explore our vast collection of games by genre
+                </p>
+            </div>
+
+            <!-- Responsive grid for categories -->
+            <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                <!-- Category 1 -->
+                <a href="#" class="category-card group relative bg-gray-700/50 rounded-lg overflow-hidden h-32 flex flex-col items-center justify-center hover:bg-purple-600/30 transition duration-300 border border-gray-600 hover:border-purple-500">
+                    <div class="category-icon text-purple-400 group-hover:text-white text-3xl mb-2">
+                        <i class="fas fa-space-shuttle"></i>
+                    </div>
+                    <h3 class="font-medium text-white">Sci-Fi</h3>
+                </a>
+                
+                <!-- Category 2 -->
+                <a href="#" class="category-card group relative bg-gray-700/50 rounded-lg overflow-hidden h-32 flex flex-col items-center justify-center hover:bg-purple-600/30 transition duration-300 border border-gray-600 hover:border-purple-500">
+                    <div class="category-icon text-purple-400 group-hover:text-white text-3xl mb-2">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="font-medium text-white">Cyberpunk</h3>
+                </a>
+                
+                <!-- Category 3 -->
+                <a href="#" class="category-card group relative bg-gray-700/50 rounded-lg overflow-hidden h-32 flex flex-col items-center justify-center hover:bg-purple-600/30 transition duration-300 border border-gray-600 hover:border-purple-500">
+                    <div class="category-icon text-purple-400 group-hover:text-white text-3xl mb-2">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <h3 class="font-medium text-white">Fantasy</h3>
+                </a>
+                
+                <!-- Category 4 -->
+                <a href="#" class="category-card group relative bg-gray-700/50 rounded-lg overflow-hidden h-32 flex flex-col items-center justify-center hover:bg-purple-600/30 transition duration-300 border border-gray-600 hover:border-purple-500">
+                    <div class="category-icon text-purple-400 group-hover:text-white text-3xl mb-2">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3 class="font-medium text-white">Sports</h3>
+                </a>
+                
+                <!-- Category 5 -->
+                <a href="#" class="category-card group relative bg-gray-700/50 rounded-lg overflow-hidden h-32 flex flex-col items-center justify-center hover:bg-purple-600/30 transition duration-300 border border-gray-600 hover:border-purple-500">
+                    <div class="category-icon text-purple-400 group-hover:text-white text-3xl mb-2">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="font-medium text-white">Strategy</h3>
+                </a>
+                
+                <!-- Category 6 -->
+                <a href="#" class="category-card group relative bg-gray-700/50 rounded-lg overflow-hidden h-32 flex flex-col items-center justify-center hover:bg-purple-600/30 transition duration-300 border border-gray-600 hover:border-purple-500">
+                    <div class="category-icon text-purple-400 group-hover:text-white text-3xl mb-2">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                    <h3 class="font-medium text-white">Racing</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Membership Section -->
+    <div class="bg-gradient-to-r from-purple-900 to-blue-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-bold text-white quantum-font glow-text">
+                        <span class="text-purple-300">Quantum</span> Elite
+                    </h2>
+                    <p class="mt-4 text-lg text-blue-100">
+                        Upgrade to Quantum Elite and unlock the full potential of your gaming experience:
+                    </p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-500/20 rounded-full p-1">
+                                <i class="fas fa-check text-purple-400 text-sm"></i>
+                            </div>
+                            <p class="ml-3 text-base text-blue-50">15% discount on all games</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-500/20 rounded-full p-1">
+                                <i class="fas fa-check text-purple-400 text-sm"></i>
+                            </div>
+                            <p class="ml-3 text-base text-blue-50">Early access to quantum releases</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-500/20 rounded-full p-1">
+                                <i class="fas fa-check text-purple-400 text-sm"></i>
+                            </div>
+                            <p class="ml-3 text-base text-blue-50">Exclusive member-only content</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-500/20 rounded-full p-1">
+                                <i class="fas fa-check text-purple-400 text-sm"></i>
+                            </div>
+                            <p class="ml-3 text-base text-blue-50">Free monthly quantum games</p>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <a href="#" class="neon-button inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 md:py-4 md:text-lg md:px-8 transition-all duration-300 hover:shadow-lg">
+                            <i class="fas fa-crown mr-2"></i> Join Elite
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="relative max-w-md mx-auto lg:max-w-none">
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl transform -rotate-1 cyber-border">
+                            <div class="px-6 py-8 sm:p-10">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h3 class="text-2xl font-bold text-white quantum-font">Quantum Elite</h3>
+                                    <div class="bg-gradient-to-r from-purple-600 to-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">POPULAR</div>
+                                </div>
+                                <div class="mt-8">
+                                    <div class="flex items-start">
+                                        <span class="text-4xl font-bold text-white">$14.99</span>
+                                        <span class="ml-2 text-lg text-blue-200">/month</span>
+                                    </div>
+                                    <p class="mt-2 text-blue-200">Billed annually at $149.99</p>
+                                </div>
+                                <div class="mt-8">
+                                    <ul class="space-y-4">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-purple-400 mr-3"></i>
+                                            <span class="text-blue-100">All elite benefits</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-purple-400 mr-3"></i>
+                                            <span class="text-blue-100">Priority quantum support</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-purple-400 mr-3"></i>
+                                            <span class="text-blue-100">Exclusive in-game content</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-purple-400 mr-3"></i>
+                                            <span class="text-blue-100">Beta access to new features</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="mt-8">
+                                    <button class="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 md:py-4 md:text-lg transition-all duration-300 hover:shadow-lg pulse">
+                                        Get Started
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="bg-gray-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-800/50 rounded-2xl px-6 py-12 sm:p-12 lg:flex lg:items-center cyber-border">
+                <div class="lg:w-0 lg:flex-1">
+                    <h2 class="text-2xl font-bold text-white quantum-font">
+                        Quantum Updates
+                    </h2>
+                    <p class="mt-3 max-w-3xl text-lg text-gray-300">
+                        Subscribe to our quantum newsletter and be the first to know about new releases, special offers, and gaming news from the future.
+                    </p>
+                </div>
+                <div class="mt-8 lg:mt-0 lg:ml-8">
+                    <form class="sm:flex">
+                        <label for="email-address" class="sr-only">Email address</label>
+                        <input id="email-address" name="email" type="email" autocomplete="email" required class="w-full px-5 py-3 border border-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500 focus:border-purple-500 sm:max-w-xs rounded-md bg-gray-700 text-white" placeholder="Enter your email">
+                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                            <button type="submit" class="neon-button w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                    <p class="mt-3 text-sm text-gray-400">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Shop</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">All Games</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">New Releases</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">Deals</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">Coming Soon</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Support</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">Help Center</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">Refunds</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">Contact Us</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">System Requirements</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">Careers</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">Blog</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white transition-colors duration-300">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Connect</h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-8">
+                <div class="md:flex md:items-center md:justify-between">
+                    <div class="flex justify-center md:order-2 space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white">Privacy</a>
+                        <a href="#" class="text-gray-400 hover:text-white">Terms</a>
+                        <a href="#" class="text-gray-400 hover:text-white">Cookies</a>
+                    </div>
+                    <div class="mt-8 md:mt-0 md:order-1">
+                        <p class="text-center text-base text-gray-400">
+                            &copy; 2023 Quantum Games. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../auth/auth.js"></script>
+    <script src="scripthome.js"></script>
+    <script>
+      // Mobile menu toggle for all devices
+      document.getElementById('menuToggle').addEventListener('click', function() {
+        var menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+      });
+
+      // Show username in mobile menu if logged in
+      document.addEventListener('DOMContentLoaded', function() {
+        var mobileUser = document.getElementById('mobileUser');
+        if (authIsLoggedIn() && authGetUsername()) {
+          mobileUser.innerHTML = '<span class="block px-3 py-2 rounded-md text-base font-medium text-white bg-purple-700/70 mb-2">Hello, ' + authGetUsername() + '</span>' +
+            '<a href="#" id="signOutBtn" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700/50">Sign out</a>';
+          var signOutBtn = document.getElementById('signOutBtn');
+          signOutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            authLogout();
+            location.reload();
+          });
+        } else {
+          mobileUser.innerHTML =
+            '<a href="../acc/singin/singin.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700/50">Log In</a>' +
+            '<a href="../acc/sing up/singup.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700/50">Sign Up</a>';
+        }
+      });
+    </script>
+</body>
+</html>

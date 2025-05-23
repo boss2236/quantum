@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stylein.css">
+</head>
+<body class="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div class="max-w-md w-full mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <!-- Header -->
+            <div class="gradient-bg py-8 px-10 text-center">
+                <h1 class="text-3xl font-bold text-white">Welcome Back</h1>
+                <p class="text-white opacity-90 mt-2">Sign in to access your account</p>
+            </div>
+            
+            <!-- Form -->
+            <div class="px-10 py-8">
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="email" name="email" required 
+                                   class="input-effect pl-10 w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-500" 
+                                   placeholder="your@email.com">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="password" name="password" required 
+                                   class="input-effect pl-10 w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-500" 
+                                   placeholder="••••••••">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" id="togglePassword">
+                                <i class="fas fa-eye text-gray-400 hover:text-gray-600"></i>
+                            </div>
+                        </div>
+                        <p id="passwordMessage" class="text-sm text-gray-500 mt-2 hidden">
+                            Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.
+                        </p>
+                        <div class="flex justify-end mt-2">
+                            <a href="#" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" 
+                                class="btn-hover w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3 px-4 rounded-lg font-medium shadow-md hover:shadow-lg">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-3 gap-3">
+                        <div>
+                            <a href="#" class="social-btn w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                <i class="fab fa-google text-red-500"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#" class="social-btn w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                <i class="fab fa-facebook-f text-blue-600"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#" class="social-btn w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                <i class="fab fa-twitter text-blue-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-600">
+                        Don't have an account? 
+                        <a href="../sing up/singup.html" class="font-medium text-indigo-600 hover:text-indigo-500">Sign up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../auth/auth.js"></script>
+    <script>
+        // Toggle password visibility
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+        const passwordMessage = document.querySelector('#passwordMessage');
+
+        password.addEventListener('focus', function () {
+            passwordMessage.classList.remove('hidden');
+        });
+
+        password.addEventListener('blur', function () {
+            passwordMessage.classList.add('hidden');
+        });
+        
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            
+            // toggle the eye icon
+            const icon = this.querySelector('i');
+            if (type === 'password') {
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+        
+        // Form submission
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            // Password validation
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                alert("Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.");
+                return;
+            }
+            // Simulate username extraction (replace with real logic)
+            var username = email.split('@')[0];
+            authLogin(username); // Save login state and username
+            window.location.href = "../../home page/home page.html";
+        });
+    </script>
+</body>
+</html>
